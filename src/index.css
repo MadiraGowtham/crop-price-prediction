@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Agricultural Theme - Earthy Greens & Golden Tones */
+    --background: 45 20% 97%;
+    --foreground: 145 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 145 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 145 30% 15%;
+
+    /* Forest Green Primary */
+    --primary: 145 45% 28%;
+    --primary-foreground: 45 20% 97%;
+
+    /* Warm Earth Secondary */
+    --secondary: 35 40% 92%;
+    --secondary-foreground: 35 50% 25%;
+
+    /* Muted Sage */
+    --muted: 120 15% 94%;
+    --muted-foreground: 145 15% 45%;
+
+    /* Golden Amber Accent */
+    --accent: 42 85% 55%;
+    --accent-foreground: 42 85% 15%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 145 20% 88%;
+    --input: 145 20% 88%;
+    --ring: 145 45% 28%;
+
+    --radius: 0.75rem;
+
+    /* Custom Agricultural Colors */
+    --harvest-gold: 42 85% 55%;
+    --earth-brown: 30 35% 35%;
+    --sky-blue: 200 70% 55%;
+    --crop-green: 145 45% 35%;
+    --soil-dark: 25 25% 20%;
+    --wheat: 45 60% 70%;
+    --success: 142 70% 45%;
+    --warning: 38 92% 50%;
+    --info: 200 80% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(145 45% 28%), hsl(145 45% 38%));
+    --gradient-gold: linear-gradient(135deg, hsl(42 85% 55%), hsl(35 80% 50%));
+    --gradient-earth: linear-gradient(135deg, hsl(35 40% 92%), hsl(45 30% 95%));
+    --gradient-hero: linear-gradient(180deg, hsl(145 45% 28% / 0.95), hsl(145 45% 20% / 0.98));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(145 30% 15% / 0.05);
+    --shadow-md: 0 4px 12px hsl(145 30% 15% / 0.08);
+    --shadow-lg: 0 10px 40px hsl(145 30% 15% / 0.12);
+    --shadow-gold: 0 4px 20px hsl(42 85% 55% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 145 25% 8%;
+    --foreground: 45 20% 95%;
+
+    --card: 145 20% 12%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 145 20% 12%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 145 50% 45%;
+    --primary-foreground: 145 30% 8%;
+
+    --secondary: 35 25% 18%;
+    --secondary-foreground: 35 40% 85%;
+
+    --muted: 145 15% 18%;
+    --muted-foreground: 145 15% 65%;
+
+    --accent: 42 80% 50%;
+    --accent-foreground: 42 80% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 145 20% 20%;
+    --input: 145 20% 20%;
+    --ring: 145 50% 45%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-glow {
+    @apply bg-card rounded-xl border border-border transition-all duration-300;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-glow:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .stat-card {
+    @apply p-6 rounded-xl border border-border bg-card;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-gold {
+    background: var(--gradient-gold);
+    box-shadow: var(--shadow-gold);
+    @apply text-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300;
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 25px hsl(42 85% 55% / 0.4);
+  }
+
+  .input-field {
+    @apply bg-background border border-input rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold text-foreground mb-2;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .price-up {
+    @apply text-[hsl(var(--success))];
+  }
+
+  .price-down {
+    @apply text-destructive;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+}
